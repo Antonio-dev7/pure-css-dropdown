@@ -1,0 +1,94 @@
+.navDefault {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: #4a4a4f;
+}
+
+button {
+    border: none;
+
+    background-color: #0997d3;
+    width: 150px;
+    height: 50px;
+    color: #fff;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+.dropdownMenu {
+    list-style: none;
+    margin: 0;
+    padding: 0; /* clearing any default padding*/
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 50px;
+
+    z-index: -1; 
+    /* The z-index property is responsible for elements stacked upon each other in the third dimension. 
+    these are our Z coordinates. We will set the z-index of our dropdown menu to "-1".
+    But by setting it to "-1", [ it will always be lower than other elements that are neighboring it 
+    or competing with it for visibility ]. So we set the z-index to * "-1", * and save our changes 
+    so the dropdown menu by default now has the z-index of "-1".
+    */
+
+    width: 150px;
+    text-align: center;
+    box-shadow: 0px 6px 10px 0px rgba(0, 0, 0, 0.2); /*www.cssmatic.com/box-shadow*/
+    
+    transform: translateY(-100%); /* After this ////
+     So we've used a translation to set the 
+    default positioning of the dropdown menu 
+    to "-100%", which sets it in as much as it 
+    can off the screen. We then like to use a 
+    hover so that when we hover over the dropdown, 
+    a dropdown menu appears.*/
+
+    transition: transform .5s ease-in-out;
+    /* So you can see it's a nice easing function, 
+    but our link is still sitting on top. In order 
+    to fix this, we will use a *z-index* property.*/
+}
+
+.dropdownLink {
+    text-decoration: none; /* to remove link underlies.*/
+
+    display: block;
+    background-color:#f9f9f9;
+    color:#4a4a4f;
+    padding: 10px 5px;
+    /* Using transition property to make the link hover transition slower.*/
+    transition: background-color .5s ease-in-out, color .5s ease-in-out; 
+}
+/* styling the -> hover <- state for the dropdown links */
+.dropdownLink:hover {
+    color:#fff;
+    background-color: #a0a0a3; 
+    /* after this their is stil padding that needs
+     to be eliminated and then center link. 
+     to do this clear any default default padding 
+     by adding padding and setting it to 0; */
+}
+/* So we're going to set the width of this div to 150 px, 
+which matches the width of the button.And we're going to 
+set the position to "relative", so it will be relative to 
+the fixed position of the button itself.*/
+.dropdown {
+    width: 150px;
+    position: relative; 
+/*After ths we want to hover button
+then hide the links by using hover on the dropdownMenu ! */
+}
+/* first targetting the button*/
+.dropdown:hover button {
+    background-color: #018ec5; 
+}
+
+ /* So again, we'll use a transformation. And we use a "translateY" 
+ again, and we'll set it to "0". So "0" will bring it to its visible position.*/
+.dropdown:hover .dropdownMenu {
+    transform: translateY(0); /* will bring it to its visible form again.*/
+
+}
